@@ -17,24 +17,30 @@ export default function CareerContainer(){
           .then (json => setCareers(json))
     },[]);
 
-//let dir = BASE_URL + 'careers' +'/21/universities'
-    useEffect(()=>{
-      fetch( BASE_URL + 'careers/' + careerIds + '/universities')
-      .then (res => res.json())
-      .then (json => setCarUnivs(json))
-    },[careerIds])
 
 console.log('Carunivs')
     console.log(carUnivs)
-    function chsetCareerIds(idc){
-      console.log('career change');
-      setCareerIds(idc);
+
+    function listcaruniv(idc){
+      console.log("entre a listcaruniv");
+      console.log(idc);
+      const config = {
+        method: "GET",
+        headers: {
+          "Content-type":  "application/json",
+        },
+      }
+      let urlComplete = BASE_URL + 'careers/' + idc + '/universities'   
+      fetch(urlComplete,config)
+        .then(response => response.json())
+        .then(json =>setCarUnivs(json)
+        )
     }
 
 
     function allcar(){
         return (
-          <Career careers={careers} chsetCareerIds={chsetCareerIds} carUnivs={carUnivs} careerIds={careerIds}/>
+          <Career careers={careers} listcaruniv={listcaruniv} carUnivs={carUnivs}/>
         )
     }
     

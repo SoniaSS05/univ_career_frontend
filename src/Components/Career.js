@@ -15,13 +15,13 @@ import {
 import DisplayReview from './DisplayReview.js';
 
 
-export default function Career({careers, chsetCareerIds, carUnivs, careerIds }){
-    const BASE_URL="http://127.0.0.1:3000/";
+export default function Career({careers, listcaruniv, carUnivs }){
+
 
     const [careerName, setCareerName] = useState(null);
     const [changeCareer, setChangeCareer] = useState(false);
-    
-  
+    console.log('CarUnivs career')
+  console.log(carUnivs);
  
     
 
@@ -31,8 +31,7 @@ console.log('Careerid de Componente Career')
         const selvalueid= e.target.value;
         let index = e.target.selectedIndex; //get text of selected option
         //setCareerName(e.target.options[index].text);//get text of selected option
-        chsetCareerIds(selvalueid);
-        setChangeCareer(true);
+        listcaruniv(selvalueid);
         console.log("entre a barra")
     }
 
@@ -53,14 +52,11 @@ console.log('Careerid de Componente Career')
         // openclosemodalCarUniv();
         return(
            // <Modal  open={modalCarUniv}  onclose={openclosemodalCarUniv}>{bodyCarUniv}</Modal>
-           <DisplayUnivCar careerIds={careerIds} carUnivs={carUnivs} />
+           <DisplayUnivCar  carUnivs={carUnivs}/>
           
         )
     }
 
-    function verification(){
-        carUnivs &&  filteredUnivCar()   
-    }
 
     return(
         <div className="comp">
@@ -78,7 +74,7 @@ console.log('Careerid de Componente Career')
                     </td>
                 </tr>
             </div>
-           {verification()} 
+           {carUnivs &&  filteredUnivCar() } 
   
         </div>
     )
