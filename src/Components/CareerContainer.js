@@ -6,10 +6,8 @@ export default function CareerContainer(){
 
 
     const [careers, setCareers] = useState(null);
-    const [univs, setUnivs] = useState(null);
     const [carUnivs, setCarUnivs] = useState(null);
-    const [careerIds, setCareerIds] = useState(null)
-  
+ 
 
     useEffect(()=>{
         fetch(BASE_URL + 'careers')
@@ -18,12 +16,7 @@ export default function CareerContainer(){
     },[]);
 
 
-console.log('Carunivs')
-    console.log(carUnivs)
-
     function listcaruniv(idc){
-      console.log("entre a listcaruniv");
-      console.log(idc);
       const config = {
         method: "GET",
         headers: {
