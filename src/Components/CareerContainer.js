@@ -20,7 +20,7 @@ export default function CareerContainer(){
       const config = {
         method: "GET",
         headers: {
-          "Content-type":  "application/json",
+          "Content-type":  "application/json"
         },
       }
       let urlComplete = BASE_URL + 'careers/' + idc + '/universities'   
